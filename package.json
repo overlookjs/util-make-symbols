@@ -1,6 +1,6 @@
 {
   "name": "@overlook/util-make-symbols",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Overlook framework utility to create global symbols",
   "main": "index.js",
   "author": {
