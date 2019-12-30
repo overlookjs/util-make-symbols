@@ -11,7 +11,51 @@ Part of the [Overlook framework](https://overlookjs.github.io/).
 
 ## Usage
 
-This module is under development and not ready for use yet.
+Create global Symbols, namespaced by module name.
+
+Returns an object containing the specified Symbols. Symbols are created with descriptions including namespace and name, to help with debugging.
+
+When publishing a [Router](https://www.npmjs.com/package/@overlook/router) as an NPM module, any Symbols you define should be created with `makeSymbols()`. This ensures the Symbols that module uses will be the same, no matter what version of your NPM module is imported.
+
+```js
+const makeSymbols = require('@overlook/util-make-symbols');
+
+const symbols = makeSymbols(
+  'my-module',
+  [ 'FOO', 'BAR' ]
+);
+
+symbols.FOO // => Symbol(my-module.FOO)
+symbols.BAR // => Symbol(my-module.BAR)
+```
+
+Symbols are cached in a global store, so creating a Symbol with same name and namespace anywhere in an app will return the same symbol.
+
+```js
+const symbols1 = makeSymbols( 'my-module', [ 'FOO' ] );
+const symbols2 = makeSymbols( 'my-module', [ 'FOO' ] );
+symbols1.FOO === symbols2.FOO // => true
+```
+
+### Usage in a `Router`
+
+```js
+// Published to npm as `overlook-router-wango`
+const makeSymbols = require('@overlook/util-make-symbols');
+
+const symbols = makeSymbols(
+  require('./package.json').name,
+  [ 'FOO', 'BAR' ]
+);
+
+const wangoRouter = /* ... define router here ... */;
+wangoRouter.FOO = symbols.FOO;
+wangoRouter.BAR = symbols.BAR;
+
+module.exports = wangoRouter;
+```
+
+Now regardless of whether someone imports version `1.0.0` or `2.3.5` of your module, `require('overlook-router-wango').FOO` will be the same Symbol.
 
 ## Tests
 
