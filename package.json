@@ -13,7 +13,10 @@
   "bugs": {
     "url": "https://github.com/overlookjs/util-make-symbols/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@overlook/symbol-store": "^1.0.0",
+    "symbols-collection": "^1.1.2"
+  },
   "devDependencies": {
     "@overlookmotel/eslint-config": "^6.0.1",
     "@overlookmotel/eslint-config-jest": "^3.0.1",
@@ -26,7 +29,8 @@
     "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-jest": "^23.2.0",
     "eslint-plugin-node": "^11.0.0",
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "jest-extended": "^0.11.2"
   },
   "keywords": [
     "overlook",
