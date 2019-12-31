@@ -24,14 +24,36 @@ it('exports a function', () => {
 	expect(makeSymbols).toBeFunction();
 });
 
-it('returns an object containing symbols', () => {
-	const symbols = makeSymbols('foo', ['BAR', 'QUX']);
-	expect(symbols).toBeObject();
-	expect(symbols).toContainAllKeys(['BAR', 'QUX']);
-	expect(typeof symbols.BAR).toBe('symbol');
-	expect(typeof symbols.QUX).toBe('symbol');
-	expect(String(symbols.BAR)).toBe('Symbol(foo.BAR)');
-	expect(String(symbols.QUX)).toBe('Symbol(foo.QUX)');
+describe('with namespace', () => {
+	it('returns an object containing symbols', () => {
+		const symbols = makeSymbols('foo', ['BAR', 'QUX']);
+		expect(symbols).toBeObject();
+		expect(symbols).toContainAllKeys(['BAR', 'QUX']);
+		expect(typeof symbols.BAR).toBe('symbol');
+		expect(typeof symbols.QUX).toBe('symbol');
+		expect(String(symbols.BAR)).toBe('Symbol(foo.BAR)');
+		expect(String(symbols.QUX)).toBe('Symbol(foo.QUX)');
+	});
+});
+
+describe('without namespace', () => {
+	it('returns an object containing symbols', () => {
+		const symbols = makeSymbols(['BAR', 'QUX']);
+		expect(symbols).toBeObject();
+		expect(symbols).toContainAllKeys(['BAR', 'QUX']);
+		expect(typeof symbols.BAR).toBe('symbol');
+		expect(typeof symbols.QUX).toBe('symbol');
+		expect(String(symbols.BAR)).toBe('Symbol(BAR)');
+		expect(String(symbols.QUX)).toBe('Symbol(QUX)');
+	});
+
+	it('does not store symbols', () => {
+		const symbols1 = makeSymbols(['BAR']);
+		const symbols2 = makeSymbols(['BAR']);
+		expect(typeof symbols1.BAR).toBe('symbol');
+		expect(typeof symbols2.BAR).toBe('symbol');
+		expect(symbols1.BAR).not.toBe(symbols2.BAR);
+	});
 });
 
 describe('saves symbol to store when', () => {

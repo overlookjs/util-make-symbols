@@ -11,15 +11,26 @@ Part of the [Overlook framework](https://overlookjs.github.io/).
 
 ## Usage
 
-Create global Symbols, namespaced by module name.
+Create symbols for use in Overlook [Routers](https://www.npmjs.com/package/@overlook/router) etc.
 
-Returns an object containing the specified Symbols. Symbols are created with descriptions including namespace and name, to help with debugging.
-
-When publishing a [Router](https://www.npmjs.com/package/@overlook/router) as an NPM module, any Symbols you define should be created with `makeSymbols()`. This ensures the Symbols that module uses will be the same, no matter what version of your NPM module is imported.
+Returns an object containing the specified Symbols. Symbols are created with descriptions matching symbol names, to help with debugging.
 
 ```js
 const makeSymbols = require('@overlook/util-make-symbols');
 
+const symbols = makeSymbols( [ 'FOO', 'BAR' ] );
+
+symbols.FOO // => Symbol(FOO)
+symbols.BAR // => Symbol(BAR)
+```
+
+### Published modules
+
+When publishing your code as an NPM module, any Symbols you define should be created with `makeSymbols()` and module name provided as namespace.
+
+The namespace is included in Symbol descriptions to aid debugging.
+
+```js
 const symbols = makeSymbols(
   'my-module',
   [ 'FOO', 'BAR' ]
@@ -29,7 +40,7 @@ symbols.FOO // => Symbol(my-module.FOO)
 symbols.BAR // => Symbol(my-module.BAR)
 ```
 
-Symbols are cached in a global store, so creating a Symbol with same name and namespace anywhere in an app will return the same symbol.
+When a namespace is provided, Symbols are cached in a global store, so creating a Symbol with same name and namespace anywhere in an app will return the same symbol.
 
 ```js
 const symbols1 = makeSymbols( 'my-module', [ 'FOO' ] );
