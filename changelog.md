@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.3
+
+No code:
+
+* Remove `.DS_Store` from NPM package
+
 ## 0.1.2
 
 Features:
