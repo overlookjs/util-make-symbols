@@ -16,7 +16,7 @@
   "dependencies": {
     "@overlook/symbol-store": "^1.0.0",
     "is-it-type": "^1.2.0",
-    "symbols-collection": "^1.2.0"
+    "symbols-collection": "^2.0.0"
   },
   "devDependencies": {
     "@overlookmotel/eslint-config": "^6.0.1",
