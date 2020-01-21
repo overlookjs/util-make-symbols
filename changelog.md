@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.2.0
+
+Breaking changes:
+
+* Drop support for Node v8
+
+Dependencies:
+
+* Update `is-it-type` dependency
+* Update `symbols-collection` dependency
+
+Dev:
+
+* Run tests on CI on Node v13
+* Update dev dependencies
+* ESLint ignore coverage dir
+
+Docs:
+
+* Versioning policy
+* Update license year
+
 ## 0.1.3
 
 No code:
