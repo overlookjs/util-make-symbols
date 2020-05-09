@@ -11,7 +11,7 @@ Part of the [Overlook framework](https://overlookjs.github.io/).
 
 ## Usage
 
-Create symbols for use in Overlook [Routers](https://www.npmjs.com/package/@overlook/router) etc.
+Create symbols for use in Overlook [plugins](https://www.npmjs.com/package/@overlook/plugin) etc.
 
 Returns an object containing the specified Symbols. Symbols are created with descriptions matching symbol names, to help with debugging.
 
@@ -48,10 +48,10 @@ const symbols2 = makeSymbols( 'my-module', [ 'FOO' ] );
 symbols1.FOO === symbols2.FOO // => true
 ```
 
-### Usage in a `Router`
+### Usage in plugins
 
 ```js
-// Published to npm as `overlook-router-wango`
+// Published to npm as `overlook-plugin-wango`
 const makeSymbols = require('@overlook/util-make-symbols');
 
 const symbols = makeSymbols(
@@ -59,14 +59,14 @@ const symbols = makeSymbols(
   [ 'FOO', 'BAR' ]
 );
 
-const wangoRouter = /* ... define router here ... */;
-wangoRouter.FOO = symbols.FOO;
-wangoRouter.BAR = symbols.BAR;
+const wangoPlugin = /* ... define plugin ... */;
+wangoPlugin.FOO = symbols.FOO;
+wangoPlugin.BAR = symbols.BAR;
 
-module.exports = wangoRouter;
+module.exports = wangoPlugin;
 ```
 
-Now regardless of whether someone imports version `1.0.0` or `2.3.5` of your module, `require('overlook-router-wango').FOO` will be the same Symbol.
+Now regardless of whether someone imports version `1.0.0` or `2.3.5` of your plugin, `require('overlook-plugin-wango').FOO` will be the same Symbol.
 
 ## Versioning
 
