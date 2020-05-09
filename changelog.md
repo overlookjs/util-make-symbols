@@ -1,5 +1,33 @@
 # Changelog
 
+## 0.2.1
+
+Refactor:
+
+* Fully specify require file paths
+
+Dependencies:
+
+* Update `is-it-type` dependency
+
+Tests:
+
+* Import from package name [refactor]
+
+Dev:
+
+* Update dev dependencies
+* Replace `.npmignore` with files entry in `package.json`
+* Run tests in dev mode
+* `.editorconfig` config
+* Simplify Jest config
+* Config file header comments
+* Remove unnecessary line from `.gitignore`
+
+Docs:
+
+* README update
+
 ## 0.2.0
 
 Breaking changes:
