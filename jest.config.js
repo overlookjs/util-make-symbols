@@ -1,4 +1,11 @@
+/* --------------------
+ * @overlook/util-make-symbols module
+ * Jest config
+ * ------------------*/
+
 'use strict';
+
+// Exports
 
 module.exports = {
 	testEnvironment: 'node',

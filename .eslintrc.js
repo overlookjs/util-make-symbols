@@ -1,4 +1,11 @@
+/* --------------------
+ * @overlook/util-make-symbols module
+ * ESLint config
+ * ------------------*/
+
 'use strict';
+
+// Exports
 
 module.exports = {
 	extends: [
