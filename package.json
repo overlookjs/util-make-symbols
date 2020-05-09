@@ -3,6 +3,9 @@
   "version": "0.2.0",
   "description": "Overlook framework utility to create global symbols",
   "main": "index.js",
+  "files": [
+    "lib/**/*.js"
+  ],
   "author": {
     "name": "Overlook Motel"
   },
