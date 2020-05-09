@@ -7,7 +7,7 @@
 
 // Modules
 const store = require('@overlook/symbol-store'),
-	makeSymbols = require('../index');
+	makeSymbols = require('../index.js');
 
 // Tests
 
