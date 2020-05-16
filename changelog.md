@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.2.2
+
+Deps:
+
+* Update `symbols-collection` dependency
+
+Dev:
+
+* Update dev dependencies
+
 ## 0.2.1
 
 Refactor:
