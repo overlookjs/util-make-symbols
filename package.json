@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@overlook/symbol-store": "^1.0.0",
-    "is-it-type": "^4.0.0",
+    "is-it-type": "^5.0.0",
     "symbols-collection": "^2.0.1"
   },
   "devDependencies": {
